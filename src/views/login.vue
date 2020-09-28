@@ -29,7 +29,7 @@
                     <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
                 </el-form-item>
                 <el-form-item>
-                    <el-button @click="resetForm('ruleForm')">注册</el-button>
+                    <el-button @click="regis()">注册</el-button>
                     <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
                 </el-form-item>
             </el-form>
