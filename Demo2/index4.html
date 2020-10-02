@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+     <style>
+       .fontmy{ color: greenyellow; font-size: 20px;}
+       .bgmy{ background-color:royalblue;}
+     </style>
+
+</head>
+<body >
+    <div id="app">  
+      <p v-bind:class="fontmy1">vicm </p>  
+      <p v-bind:class="[fontmy1,bgmy1]">vicm 1</p> 
+      <p v-bind:class="{fontmy:flag,bgmy:false}">vicm 1</p>  
+      <p v-bind:class="varstyle">vicm 2</p>   
+    </div> 
+    <script>
+        var datamodel={
+           fontmy1:'fontmy',
+           bgmy1:'bgmy',
+           flag:true,
+           varstyle:{fontmy:true,bgmy:true}
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+          
+        })
+    </script>
+
+</body>
+</html>

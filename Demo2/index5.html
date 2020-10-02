@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+     <style>
+       /* .fontmy{ color: greenyellow; font-size: 20px;} */
+       /* .bgmy{ background-color:royalblue;} */
+     </style>
+
+</head>
+<body >
+    <div id="app">  
+      <p v-bind:style="[mystyle,bgmy]">vicm </p>  
+    </div> 
+    <script>
+        var datamodel={
+            mystyle:{ color:'red',fontSize: '10px'},
+            bgmy:{ backgroundColor:'royalblue'}
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+          
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+     <style>
+      
+     </style>
+
+</head>
+<body >
+    <div id="app">  
+       <input type="button" value="单击我" v-on:click="handleclick"/>
+       <input type="button" value="单击我" v-on:click="handleclick1(1)"/>
+    </div> 
+    <script>
+        var datamodel={
+           
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+                handleclick:function () {
+                   alert("使用v-on");  
+                },
+                handleclick1(id){ alert("123"+id)}     
+            },
+        })
+    </script>
+
+</body>
+</html>

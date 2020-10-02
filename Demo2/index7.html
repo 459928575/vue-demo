@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+     <style>
+      
+     </style>
+
+</head>
+<body >
+    <div id="app">  
+        <button @click="show()">显示</button>
+        <hr>
+        <button v-on:mouseover="show1()">mouseover</button>
+        <button v-on:dblclick="show2()">dbclick</button>
+        <hr>
+        <button @click="show3()">向数组添加元素</button>
+    </div> 
+    <script>
+        var datamodel={
+           arr:[12,34,56,78]
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+              show1(){ alert("mouseover"); console.log("mouseover"); },
+              show2(){ alert("dbclick"); console.log("dbclick"); },
+              show3(){ console.log(this); console.log(this===vm);this.arr.push(55) ;console.log(this.arr);}
+            },
+        })
+    </script>
+
+</body>
+</html>

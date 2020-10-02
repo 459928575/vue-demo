@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+     <style>
+       
+     </style>
+
+</head>
+<body>
+    <div id="app">  
+        <h2> {{msg}}</h2>
+        <input type="text" v-model="msg">
+        <!-- <img :src="url"/> -->
+         <img v-bind:src="url" v-bind:width="w" :height="h" :title="title+':hello!'">
+    </div> 
+    <script>
+        var datamodel={
+            msg:"hello",
+            url:"img/11.png",
+            w:"150px",
+            h:"150px",
+            title:"vicm"
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+          
+        })
+    </script>
+
+</body>
+</html>

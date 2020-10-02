@@ -9,14 +9,32 @@
 </head>
 
 <body>
+    <!-- <script>
+        window.onload=function () {
+            var vm = new Vue({
+                el: "#app",
+                data: { msg: "nihao3" }
+            })  
+        }
+        </script> -->
     <div id="app">
         <h2>{{msg}}</h2>
+        <h2 v-text="msg">v-text</h2>
+        <h2 v-text="linkmsg">1</h2>
+        <h2 v-html="linkmsg"></h2>
+
     </div>
+
     <script>
 
+        // model
+        var datamodel = {
+            msg: "nihao3",
+            linkmsg: "<a href='https://www.baidu.com'>百度</a>"
+        }
         var vm = new Vue({
             el: "#app",
-            data: { msg: "nihao2" }
+            data: datamodel
         })
 
     </script>
