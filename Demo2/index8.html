@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+     <style>
+      
+     </style>
+
+</head>
+<body >
+    <div id="app">  
+        <div v-if="flag">NO</div>
+        <div v-else >Yes</div>
+        <hr>
+        <div v-if="grade>90">优秀</div>
+         <div v-else-if="grade>70&&grade<90">中等</div>
+         <div v-else-if="grade>60">及格</div>
+         <div v-else>不及格</div>
+    </div> 
+    <script>
+        var datamodel={
+           flag:false,
+           grade:78
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+              
+            },
+        })
+    </script>
+
+</body>
+</html>

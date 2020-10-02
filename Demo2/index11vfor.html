@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+      <ul>
+          <li v-for="(item, index) in arr" :key="index">{{item}}</li>
+      </ul>
+      <hr>
+       <ul>
+           <li v-for="(item, key,index) in user" >{{index}}-{{key}}-{{item}}</li>
+       </ul>
+
+    </div>
+    <script>
+        var datamodel = {
+             arr:[12,34,56,78],
+             user:{id:1,username:'zhangsan',age:20,sex:'female'},
+             users:[
+                     {id:1,username:'zhangsan1',age:21,sex:'female'},
+                     {id:2,username:'zhangsan2',age:22,sex:'female'},
+                     {id:3,username:'zhangsan3',age:23,sex:'female'},
+                  ],
+        }
+
+        var vm = new Vue({
+            el: "#app",
+            data: datamodel,
+            methods: {
+               
+            },
+        })
+    </script>
+
+</body>
+
+</html>

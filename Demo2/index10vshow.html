@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if="flag"> vshow</h1>
+        <hr>
+       <button @click="change()">显示隐藏</button>
+       <button @click="flag=!flag">显示隐藏1</button>
+
+    </div>
+    <script>
+        var datamodel = {
+            flag: true,
+        }
+
+        var vm = new Vue({
+            el: "#app",
+            data: datamodel,
+            methods: {
+                change(){ this.flag=!this.flag;}
+            },
+        })
+    </script>
+
+</body>
+
+</html>
