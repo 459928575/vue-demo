@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       {{msg}}
+       <!-- <input type="text" name="" id="" v-model="msg" v-on:keyup="gaibian"> -->
+       <input type="text" name="" id="" v-model="msg" >
+    </div>
+    <script>
+        var datamodel={
+            msg:"hello vue"
+           
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+                // gaibian(){ localStorage.setItem("msg",this.msg);}
+            },
+            mounted() {
+                this.msg=localStorage.getItem("msg");
+            },
+            watch: {
+                msg(newvalue){localStorage.setItem("msg",this.msg);}
+            },
+        })
+
+        // vm.$watch('msg',function (newvalue,oldvalue)
+        //         {
+        //             console.log(`新值：${newvalue}————————旧值：${oldvalue}`);
+        //         });
+    </script>
+</body>
+</html>

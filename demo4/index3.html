@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       {{msg}}
+       <input type="text" name="" id="" v-model="msg">
+    </div>
+    <script>
+        var datamodel={
+            msg:"hello world",
+            user:{name:'zhangsan',gender:'male'}
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+                // watchmsg:function (newvalue,oldvalue)
+                // {
+                //     console.log(`新值：${newvalue}————————旧值：${oldvalue}`);
+                // }
+            },
+            computed: {
+            //  revsermsg(){ return this.msg.split("").reverse().join("") }   
+            },
+            created() {
+                 alert("created");
+            },
+            watch: {
+                // msg:'watchmsg',
+                // user:{
+                //     handler:function(newvalue,oldvalue){
+                //         console.log(`新值：${newvalue.name}————————旧值：${oldvalue.name}`);
+                //     },
+                //     deep:true
+                // }
+            },
+        })
+
+        vm.$watch('msg',function (newvalue,oldvalue)
+                {
+                    console.log(`新值：${newvalue}————————旧值：${oldvalue}`);
+                });
+    </script>
+</body>
+</html>

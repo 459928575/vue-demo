@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       {{msg}}
+       <input type="text" name="" id="" v-model="msg">
+       <button @click="update()">更新</button>
+       <button @click="destroy()">销毁</button>
+    </div>
+    <script>
+        var datamodel={
+            msg:"hello world",
+            user:{name:'zhangsan',gender:'male'}
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+                update(){ console.log("更新"); this.msg="helloword 更新";} ,
+                destroy(){ this.$destroy();    } 
+            },
+            beforeCreate() {
+                console.log("beforeCreate");
+            },
+            created() {
+                console.log("created"); 
+            },
+            beforeMount() {
+                console.log("beforeMount"); 
+            },
+            mounted() {
+                console.log("mounted"); 
+            },
+            beforeUpdate() {
+                console.log("beforeUpdate");
+            },
+            updated() {
+                console.log("updated");
+            },
+            beforeDestroy() {
+                console.log("beforeDestroy");
+            },
+            destroyed() {
+                console.log("destroyed");
+            },
+
+        })
+
+        // vm.$watch('msg',function (newvalue,oldvalue)
+        //         {
+        //             console.log(`新值：${newvalue}————————旧值：${oldvalue}`);
+        //         });
+    </script>
+</body>
+</html>

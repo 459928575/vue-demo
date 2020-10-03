@@ -9,26 +9,33 @@
 <body>
     <div id="app">
        {{msg}}
-       <input type="text" name="" id="" v-model="msg">
+       <input type="text" name="" id="" v-model="user.name">
     </div>
     <script>
         var datamodel={
-            msg:"hello world"
+            msg:"hello world",
+            user:{name:'zhangsan',gender:'male'}
         }
 
         var vm=new Vue({
             el:"#app",
             data:datamodel,
             methods: {
-                
+                watchmsg:function (newvalue,oldvalue)
+                {
+                    console.log(`新值：${newvalue}————————旧值：${oldvalue}`);
+                }
             },
             computed: {
              revsermsg(){ return this.msg.split("").reverse().join("") }   
             },
             watch: {
-                msg:function (newvalue,oldvalue)
-                {
-                    console.log(`新值：${newvalue}————————旧值：${oldvalue}`);
+                msg:'watchmsg',
+                user:{
+                    handler:function(newvalue,oldvalue){
+                        console.log(`新值：${newvalue.name}————————旧值：${oldvalue.name}`);
+                    },
+                    deep:true
                 }
             },
         })

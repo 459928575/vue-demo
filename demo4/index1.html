@@ -20,16 +20,16 @@
             el:"#app",
             data:datamodel,
             methods: {
-                
+                watchmsg:function (newvalue,oldvalue)
+                {
+                    console.log(`新值：${newvalue}————————旧值：${oldvalue}`);
+                }
             },
             computed: {
              revsermsg(){ return this.msg.split("").reverse().join("") }   
             },
             watch: {
-                msg:function (newvalue,oldvalue)
-                {
-                    console.log(`新值：${newvalue}————————旧值：${oldvalue}`);
-                }
+                msg:'watchmsg'
             },
         })
     </script>
