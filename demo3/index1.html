@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="div1" v-on:click="handle">
+            <input type="button" value="button" v-on:click="show($event)">
+        </div>
+        <hr>
+        <div id="div2" v-on:click.self="handle">
+            <input type="button" value="button2" v-on:click.stop="show1()">
+        </div>
+        <div id="div3" v-on:click.capture="handle">
+            <input type="button" value="button3" v-on:click="show3()">
+        </div>
+    </div>
+    <script>
+        var datamodel = {
+
+        }
+
+        var vm = new Vue({
+            el: "#app",
+            data: datamodel,
+            methods: {
+                handle() { alert("div 事件") },
+                // show(e) {
+                //     alert("input事件!"); e.stopPropagation();
+                // },
+                show1(e) {
+                    alert("input1事件!");
+                },
+                show3(e) {
+                    alert("input3事件!");
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

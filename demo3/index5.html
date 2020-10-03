@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+ 
+<body>
+    <div id="app">
+        {{msg}}
+        <input type="text" name="" id="" v-on:keydown="keydown">
+    </div>
+    <script>
+        var datamodel = {
+               msg:""
+        }
+
+        var vm = new Vue({
+            el: "#app",
+            data: datamodel,
+            methods: {
+                keydown(e){  console.log(e.keyCode);
+                  if (e.keyCode==13) { console.log("你按的是回车");   this.msg=e.target.value;
+                      e.target.value="";    
+                }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

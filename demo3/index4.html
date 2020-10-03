@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+         <form  v-on:submit.prevent="tijiao">
+             <input type="text" name="username" id="">
+             <input type="submit" value="提交">
+         </form>
+    </div>
+    <script>
+        var datamodel = {
+
+        }
+
+        var vm = new Vue({
+            el: "#app",
+            data: datamodel,
+            methods: {
+                tijiao(){ console.log(1122);}
+            },
+        })
+    </script>
+</body>
+
+</html>
