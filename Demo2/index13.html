@@ -14,23 +14,23 @@
 
 <body>
     <div id="app">
-     
-       <ul>
-           <li v-for="(user,index) in users":key="index" >{{index}}-{{user.id}}-{{user.username}}-{{user.age}}-{{user.sex}}</li>
-       </ul>
-      
+       <!-- <!-- <input type="text" name="" id="" v-model="msg">{{msg}} -->
        <hr>
-       <ul>
-           <li v-for="(item, index) in 5" :key="index">{{item}}</li>
-       </ul>
+       <input type="text" name="" id="" v-model.trim="msg">{{msg}}
+       <hr> 
+       <!-- <input type="text" name="" id="" v-model.number="num1">{{num1}}
+       <input type="text" name="" id="" v-model.number="num2">{{num2}}
+        <br>
+        {{num1+num2}} -->
     </div>
     <script>
         var datamodel = {
+            num1:1,
+            num2:2,
+            msg:"helloworld",
              arr:[12,34,56,78],
-             users:[
-                     {id:1,username:'zhangsan1',age:21,sex:'female'},
-                     {id:2,username:'zhangsan2',age:22,sex:'female'},
-                     {id:3,username:'zhangsan3',age:23,sex:'female'},
+             items:[
+                   
                   ],
         }
 

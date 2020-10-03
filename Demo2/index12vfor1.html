@@ -14,23 +14,21 @@
 
 <body>
     <div id="app">
-     
-       <ul>
-           <li v-for="(user,index) in users":key="index" >{{index}}-{{user.id}}-{{user.username}}-{{user.age}}-{{user.sex}}</li>
-       </ul>
+        <ul>
+            <li v-for="(item, index) in items" :key="index" v-if="item.isok">{{item.text}}</li>
+        </ul>
       
        <hr>
-       <ul>
-           <li v-for="(item, index) in 5" :key="index">{{item}}</li>
-       </ul>
+      
     </div>
     <script>
         var datamodel = {
              arr:[12,34,56,78],
-             users:[
-                     {id:1,username:'zhangsan1',age:21,sex:'female'},
-                     {id:2,username:'zhangsan2',age:22,sex:'female'},
-                     {id:3,username:'zhangsan3',age:23,sex:'female'},
+             items:[
+                     {text:'vue',isok:true},
+                     {text:'react',isok:true},
+                     {text:'anglue',isok:true},
+                     {text:'css',isok:false},
                   ],
         }
 
