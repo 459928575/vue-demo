@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{user.name}}  {{user.sex}}
+       <button @click='update'>修改属性</button>
+       <button @click='add'>添加属性</button>
+       <button @click='deletesex'>删除属性</button>
+     
+    </div>
+    <script>
+        var datamodel={
+          user:{name:"zhangsan" ,age:12 }
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+            update(){ this.user.name="lisi" },
+            add(){ vm.$set(this.user,'sex','male')  },
+            deletesex(){vm.$delete(this.user,'sex')}
+
+            },
+            
+        })
+        
+    </script>
+</body>
+</html>

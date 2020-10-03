@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="app">
-
+       {{msg}}
     </div>
     <script>
         var datamodel={
@@ -17,11 +17,14 @@
        var vm= new Vue({
            el:"#app",
            data:datamodel,
-           methods: {
-               
-           },
-            
+           methods: {   
+           }, 
         })
+
+        vm.$el.style.color="red";
+        vm.$el.style.backgroundColor="blue"
+         console.log(vm.$data) ;
+         console.log(vm.$data.msg);
     </script>
 </body>
 </html>

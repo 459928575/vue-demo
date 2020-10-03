@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       {{msg}}
+       <h2 ref="hello" >{{hello}}</h2>
+       <h2 ref="world" >{{world}}</h2>
+       <input type="text" name="" id="" v-model="msg" >
+    </div>
+    <script>
+        var datamodel={
+            msg:"hello vue",
+            hello:"hello",
+            world:"world"
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+            //    show1(){alert(11)} 
+            },
+            
+        })
+        vm.hello="lisi";
+        console.log(vm.$refs.hello);
+        vm.$nextTick(function () {
+            console.log(vm.$refs.hello.textContent) ; 
+        });
+      
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <h3 v-text>{{msg}}</h3>
+        <h3 v-red-text>{{msg}}</h3> -->
+<hr>
+        <h3 v-text="msg"></h3>
+        <h3 v-red-text:vicm="msg"></h3>
+    </div>
+    <script>
+     Vue.directive('red-text', { 
+         bind(el){ 
+              el.style.color="red"
+            },
+            inserted(el,binding){
+               console.log(binding);
+               console.log(binding.name);//red-text
+               console.log(binding.value);//123
+               console.log(binding.expression);//msg
+               console.log(binding.arg); //vicm
+            },
+           
+            })
+
+        var datamodel={
+         msg:"123"
+        }
+
+    
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+              
+            },
+            
+        })
+        
+    </script>
+</body>
+</html>

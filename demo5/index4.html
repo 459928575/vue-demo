@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3 v-my-dir>{{msg}}</h3>
+        <button @click='update'>update</button>
+        <button @click='unbindview'>unbindview</button>
+    </div>
+    <script>
+     Vue.directive('my-dir', { 
+         bind(){ 
+             alert("bind my-dir");
+            },
+            inserted(){
+               alert('insert 到 dom') 
+            },
+            update(){
+                alert('update 到 dom') 
+
+            },
+            componentUpdated(){
+                alert('componentUpdated 到 dom')  
+            },
+            unbind(){
+                alert('unbind 到 dom') 
+            }
+
+            })
+
+        var datamodel={
+         msg:"123"
+        }
+
+    
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+                update(){  this.msg="hello world update" },
+                unbindview(){vm.$destroy() } 
+            },
+            
+        })
+        
+    </script>
+</body>
+</html>

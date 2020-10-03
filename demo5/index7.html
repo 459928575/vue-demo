@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+        #app p {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click=flag=!flag> 点我</button>
+        <transition>
+            <p v-show="flag">切换</p>
+        </transition>
+
+        <hr>
+
+    </div>
+    <script>
+        var datamodel = {
+            msg: "123",
+            flag: false
+
+        }
+
+
+        var vm = new Vue({
+            el: "#app",
+            data: datamodel,
+            directives: {
+                'myfocus': {
+                    inserted(el) {
+                        el.focus()
+                    }
+                },
+            },
+            methods: {
+
+            },
+
+        });
+
+    </script>
+</body>
+
+</html>
