@@ -7,19 +7,31 @@
     <title>Document</title>
     <script src="js/vue.js"></script>
     <style>
-        #app p {
+ 
+       .p1 {
             width: 200px;
             height: 200px;
             background-color: red;
         }
+        .fade-enter-active,.fade-leave-active{ transition: all 2s ease;}
+        .fade-enter-active{opacity: 1; width: 200px; height: 200px;}
+        .fade-leave-active{opacity: 0; width: 200px; height: 200px;}
+        .fade-enter,.fade-leave-to{opacity: 0; width: 50px; height: 50px;}
     </style>
 </head>
 
 <body>
     <div id="app">
         <button @click=flag=!flag> 点我</button>
-        <transition>
-            <p v-show="flag">切换</p>
+        <transition name='fade'
+         @before-enter="beforenter"
+         @enter="enter"
+         @after-enter="afterenter"
+         @before-leave="beforleave"
+         @leave="leave"
+         @after-leave="afterleave"
+        >
+            <p v-show="flag" class="p1">切换</p>
         </transition>
 
         <hr>
@@ -31,20 +43,16 @@
             flag: false
 
         }
-
-
         var vm = new Vue({
             el: "#app",
             data: datamodel,
-            directives: {
-                'myfocus': {
-                    inserted(el) {
-                        el.focus()
-                    }
-                },
-            },
             methods: {
-
+                beforenter(){ console.log("beforenter")},
+                enter(){ console.log("enter")},
+                afterenter(el){ console.log("afterenter"); el.style.background="green";},
+                beforleave(){ console.log("beforleave")},
+                leave(el){ console.log("leave");el.style.background="red";},
+                afterleave(el){ console.log("afterleave"); },
             },
 
         });

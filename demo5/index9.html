@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="css/animate.css" />
+    <style>
+        .my-element {
+            display: inline-block;
+            margin: 0 0.5rem;
+
+            animation: bounce;
+            /* referring directly to the animation's @keyframe declaration */
+            animation-duration: 2s;
+            /* don't forget to set a duration! */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="show = !show">Toggle show</button>
+        <transition enter-active-class="animate__animated animate__backInDown"
+            leave-active-class="animate__animated animate__jello">
+            <p v-show="show">Lorem ipsum dolosis enim libero, at</p>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                show: true
+            }
+        })
+
+    </script>
+</body>
+
+</html>

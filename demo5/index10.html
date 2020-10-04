@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="css/animate.css" />
+    <style>
+        .my-element {
+            display: inline-block;
+            margin: 0 0.5rem;
+
+            animation: bounce;
+            /* referring directly to the animation's @keyframe declaration */
+            animation-duration: 2s;
+            /* don't forget to set a duration! */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h3>{{8|addzero}}</h3>
+        <h3>{{12.08588|filterNum(3)}}</h3>
+        <h3>{{75.667|filterNum(2)}}</h3>
+        <h3>{{CurrentDate|dateFilter}}</h3>
+        <h3>{{CurrentDate}}</h3>
+    </div>
+    <script>
+        Vue.filter('addzero',data=>{ return data<10? "0"+data:data;})
+        Vue.filter('filterNum',(data,n)=>{ return data.toFixed(n);})
+        Vue.filter('dateFilter',data=>{  
+            var d=new Date(data)
+            return  d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+              ;})
+
+        new Vue({
+            el: '#app',
+            data: {
+                CurrentDate:Date.now()
+            }
+        })
+
+    </script>
+</body>
+
+</html>
