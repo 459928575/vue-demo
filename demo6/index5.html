@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- <components-tr></components-tr> -->
+        <table>
+            <tr is='components-tr'></tr>
+        </table>
+
+    </div>
+    <script type="text/x-template" id='tmp1'>
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+        </tr>
+    </script>
+
+    <script>
+        var componentstr = {
+            template: '#tmp1',
+            data() {
+                return {
+                    id:1001,
+                    name:'zhangsan'
+                }
+            },
+
+        }
+        var vm = new Vue({
+            el: "#app",
+            data:
+            {
+                id: 12,
+                name: 'zhangsan'
+            },
+            components: {
+                'components-tr': componentstr
+            },
+            methods: {
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>

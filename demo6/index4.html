@@ -13,15 +13,14 @@
     <div id="app">
         <button @click="CurrentComponent='my-hello'">显示my-hello</button>
         <button @click="CurrentComponent='my-hello1'">显示my-hello1</button>
-        <component :is="CurrentComponent"></component>
-
-        <!-- <my-hello></my-hello>
-        <my-hello1></my-hello1> -->
+        <!-- keep-alive 缓存非活动组件内容 -->
+        <keep-alive>
+            <component :is="CurrentComponent"></component>
+        </keep-alive>
+        
     </div>
     <hr>
 
-
-   
     <script>
         var vm = new Vue({
             el: "#app",
@@ -32,18 +31,18 @@
             },
             components: {
                 'my-hello': {
-                    template: `<h3>hello vue1</h3>`,
+                    template: `<h3>my-hello-{{x}}</h3>`,
                     data() {
                         return {
-                            x: math.random
+                            x: Math.random()
                         }
                     },
                 },
                 'my-hello1': {
-                    template: `<h3>my-hello1</h3>`,
+                    template: `<h3>my-hello1-{{y}}</h3>`,
                     data() {
                         return {
-                            y: math.random
+                            y: Math.random()
                         }
                     },
                 },

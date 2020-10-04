@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- <components-tr></components-tr> -->
+        <table>
+            <tr is='components-tr'></tr>
+        </table>
+
+    </div>
+    <script type="text/x-template" id='tmp1'>
+        <div>
+            <tr v-for="item in stulist">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+            </tr>
+        </div>
+       
+    </script>
+
+    <script>
+        var componentstr = {
+            template: '#tmp1',
+            data() {
+                return {
+                    stulist:[
+                        {id:1001,name:'zhangsan1'},
+                        {id:1002,name:'zhangsan2'},
+                        {id:1003,name:'zhangsan3'}
+                    ]
+                    
+                }
+            },
+
+        }
+        var vm = new Vue({
+            el: "#app",
+            data:
+            {
+                id: 12,
+                name: 'zhangsan'
+            },
+            components: {
+                'components-tr': componentstr
+            },
+            methods: {
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>
