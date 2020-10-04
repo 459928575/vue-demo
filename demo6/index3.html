@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <my-hello></my-hello>
+    </div>
+
+    <template id="tmp">
+        <div>
+            <h3>hello vue1</h3>
+            <h4>csdn1</h4>
+            <h2>{{msg}}</h2>
+            <button @click='tanchu'>点击</button>
+        </div>
+    </template>
+    <script>
+        // Vue.component("myHello", {
+        //     template: `#tmp`,
+        //     data: data => { return { msg: "hello world!" } },
+        //     methods: {
+        //         tanchu() { alert(123) }
+        //     },
+        // })
+        //提出局部组件
+        var partComponents={
+            myHello: {
+                    template: `#tmp`,
+                    data: data => { return { msg: "hello world dd!" } },
+                    methods: {
+                        tanchu() { alert(123) }
+                    },
+                }
+        }
+
+      //局部组件components
+        var vm = new Vue({
+            el: "#app",
+            data:
+            {
+                msg: "msg !"
+            },
+            components: partComponents,
+            methods: {
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>

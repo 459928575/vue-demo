@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/vue.js"></script>
-    
+
 </head>
 
 <body>
@@ -18,11 +18,17 @@
         <div>
             <h3>hello vue1</h3>
             <h4>csdn1</h4>
+             <h2>{{msg}}</h2>
+             <button @click='tanchu'>点击</button>
        </div>
       </template>
     <script>
         Vue.component("myHello", {
-            template: `#tmp`
+            template: `#tmp`,
+            data:data=> {return {msg:"hello world!"}},
+             methods: {
+                tanchu(){alert(123)}  
+             },
         })
 
         var vm = new Vue({
