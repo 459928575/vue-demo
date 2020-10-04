@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <button @click="CurrentComponent='my-hello'">显示my-hello</button>
+        <button @click="CurrentComponent='my-hello1'">显示my-hello1</button>
+        <component :is="CurrentComponent"></component>
+
+        <!-- <my-hello></my-hello>
+        <my-hello1></my-hello1> -->
+    </div>
+    <hr>
+
+
+   
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data:
+            {
+                CurrentComponent:"my-hello",
+                msg: "msg !"
+            },
+            components: {
+                'my-hello': {
+                    template: `<h3>hello vue1</h3>`,
+                    data() {
+                        return {
+                            x: math.random
+                        }
+                    },
+                },
+                'my-hello1': {
+                    template: `<h3>my-hello1</h3>`,
+                    data() {
+                        return {
+                            y: math.random
+                        }
+                    },
+                },
+            },
+            methods: {
+            },
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -13,6 +13,10 @@
     <div id="app">
         <my-hello></my-hello>
     </div>
+   <hr>
+    <div id="app1">
+        <my-hello></my-hello>
+    </div>
 
     <template id="tmp">
         <div>
@@ -44,6 +48,17 @@
       //局部组件components
         var vm = new Vue({
             el: "#app",
+            data:
+            {
+                msg: "msg !"
+            },
+            components: partComponents,
+            methods: {
+            },
+        })
+
+        var vm1 = new Vue({
+            el: "#app1",
             data:
             {
                 msg: "msg !"
