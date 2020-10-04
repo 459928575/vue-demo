@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/plugin.js"></script>
+</head>
+<body>
+    <div id="app">
+         <h3>{{msg}}</h3> v-
+         <span v-my-directive='msg'></span>
+         <h3>{{msg|upcase}}</h3>
+     </div>
+    <Script>
+       Vue.use(MyPlugin);
+        var datamodel={
+              msg:"helloworld"   
+        }
+        var vm=new Vue({
+            el:"#app",
+            data:datamodel,
+            methods: {
+                
+            },
+        })
+        vm.$myMethod("vicm");
+        Vue.myGlobalMethod();
+    </Script>
+</body>
+</html>
