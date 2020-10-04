@@ -14,12 +14,26 @@
         <my-hello></my-hello>
     </div>
     <script>
+         
+         Vue.component("myHello", {
+            template:"<h2> vicm</h2>"
+         })
+
+
+
+
+
+
         //1.
-        var MyComponent = Vue.extend({
-            template: '<h3>hello world!</h3>'
-        })
+        // var MyComponent = Vue.extend({
+        //     template: '<h3>hello world!</h3>'
+        // })
         //2.
-        Vue.component('myHello', MyComponent);
+        // Vue.component('myHello', 
+        // {
+        //     template: '<h3>hello world!</h3>'
+        // }
+        // );
 
         var datamodel = {
             msg: "msg !"

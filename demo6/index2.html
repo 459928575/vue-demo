@@ -10,28 +10,30 @@
 
 <body>
     <div id="app">
-        <!--3.使用组件  -->
         <my-hello></my-hello>
     </div>
+
+      <template id="tmp">
+        <div>
+            <h3>hello vue1</h3>
+            <h4>csdn1</h4>
+       </div>
+      </template>
     <script>
-        //1.
-        var MyComponent = Vue.extend({
-            template: '<h3>hello world!</h3>'
+        Vue.component("myHello", {
+            template: `#tmp`
         })
-        //2.
-        Vue.component('myHello', MyComponent);
 
-        var datamodel = {
-            msg: "msg !"
-        }
-
-        var vm= new Vue({
+        var vm = new Vue({
             el: "#app",
-            data: datamodel,
+            data:
+            {
+                msg: "msg !"
+            },
             methods: {
-
             },
         })
+       
 
     </script>
 </body>
