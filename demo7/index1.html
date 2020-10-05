@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+    <div id="app">
+        <button @click="send">发送ajax请求</button>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                send(){
+                    // axios返回值是promise对象
+                axios({
+                        method:'get',
+                        url:'user.json',
+                        responseType:'json'
+                    }).then(resp=>{
+                        console.log(resp)
+                        console.log(resp.data)
+                    }).catch(err=>{
+                        console.log('请求失败')
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
