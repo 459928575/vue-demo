@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+        .panel{
+            margin:10px;
+            width:150px;
+            border: 1px solid #ccc;
+        }
+        .panel-header,
+        .panel-bottom{
+            height: 30px;
+            background-color: wheat;
+        }
+        .panel-body{
+            min-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <panel>12344</panel>
+       
+    </div>
+    <template id="panelTpl">
+        <div class="panel">
+            <div class="panel-header">默认头部内容</div>
+            <div class="panel-body">
+                <slot></slot>
+            </div>
+            <div class="panel-bottom">默认底部内容</div>
+        </div>
+    </template>
+    <script>
+       var panelTpl={
+           template:'#panelTpl'
+       }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                title: '大家好',
+                name: ''
+            },
+            components: {
+                'panel': panelTpl
+            }                                     
+        })
+    </script>
+
+</body>
+
+</html>

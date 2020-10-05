@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slot组件</title>
+    <script src="js/vue.js"></script>
+     <style >
+         .panel{
+            margin:10px;
+            width:150px;
+            border: 1px solid #ccc;
+        }
+        .panel-header,
+        .panel-bottom{
+            height: 30px;
+            background-color: wheat;
+        }
+        .panel-body{
+            min-height: 50px;
+        }
+     </style>
+</head>
+
+<body>
+    <div id="app">
+        <panel>
+            <template v-slot:default>
+                <p>大家好，欢迎来到vicm 殿堂！</p>
+            </template>v-
+            <template v-slot:title>
+                <h3 >教育部</h3>
+            </template>
+            <template v-slot:more>
+                <a href="https://www.baidu.com" >百度</a>
+            </template>
+        </panel>
+        <panel>
+            <template v-slot:title>
+                <h3 >教育厅</h3>
+            </template>
+            <template v-slot:default >
+                <div>欢迎学习 vue</div>
+            </template>
+            <template v-slot:more>
+                <a href="https://www.baidu.com" >百度</a>
+            </template>   
+        </panel>
+        <panel>
+            <template v-slot:default >
+                后续学习
+            </template> 
+        </panel>
+    </div>
+
+    <template id="panelTpl">
+        <div class="panel">
+              <div class="panel-header"> <slot name='head'>默认标题</slot></div> 
+              <div class="panel-body"><slot ></slot></div> 
+              <div class="panel-bottom"><slot name='more1'>更多</slot></div> 
+        </div>
+    </template>
+ 
+   
+    <script>
+        var panelTpl={
+            template:'#panelTpl'
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            data: { title: '大家好', name: '' },
+            methods: {},
+            components:
+            {
+             'panel':panelTpl
+                
+                
+            }
+        });
+    </script>
+</body>
+
+</html>

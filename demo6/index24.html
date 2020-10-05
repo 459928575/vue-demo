@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" name="" id="" ref='msgText' v-model="msg">
+        <button @click='getElemet'>获取元素值</button>
+        <hr>
+        <child ref='childcomponet'> </child>
+    </div>
+    <template id="child">
+        <div>
+           <input type="text"  id="" name='datetime' v-model="local"> 
+           <button @click='getlocalDate'>获取当前时间</button>
+        </div>
+    </template>
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg:'vicm'
+            },
+            methods: {
+                getElemet(){ 
+                    console.log(this.$refs.msgText.value)
+                    this.$refs.childcomponet.getlocalDate()
+                    console.log(this.$refs.childcomponet.local)
+                }
+            },
+            components: {
+                'child': {
+                    template: '#child',
+                    methods: {
+                        getlocalDate(){
+                          var date=new Date();
+                          this.local=date.toLocaleDateString();   
+                        }
+                    },
+                    data() {
+                        return {
+                           local:'' 
+                        }
+                    }
+                },
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

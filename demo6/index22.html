@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <current-user>
+            <template v-slot:default="userInfo">
+                通过父组件位置获取到子组件的用户姓名：{{userInfo.name}}
+            </template>
+        </current-user>
+    </div>
+    <template id="child">
+        <div>
+            显示子组件自己的数据:{{userInfo.name}}
+        <br>
+        <!-- 在插槽上绑定子组件的数据。 -->
+        <slot v-bind="userInfo"></slot>
+    </div>
+    </template>
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            components: {
+                'current-user': {
+                    template: '#child',
+                    data() {
+                        return {
+                            userInfo: {
+                                name: '徐照兴'
+                            }
+                        }
+                    }
+                },
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

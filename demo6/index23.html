@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <current-user>
+            <template v-slot="userInfo">
+                <div>
+                    {{userInfo.name}}
+                </div>
+            </template>
+        </current-user>
+    </div>
+    <template id="child">
+        <div>
+            {{userInfo.name}}
+            <slot v-bind="userInfo"></slot>
+        </div>
+    </template>
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            components: {
+                'current-user': {
+                    template: '#child',
+                    data() {
+                        return {
+                            userInfo: {
+                                name: '徐照兴'
+                            }
+                        }
+                    }
+                },
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

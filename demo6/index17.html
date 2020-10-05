@@ -24,7 +24,7 @@
     <template id="tmp2">
         <div>
             <h3>tmp2---{{age}}</h3>
-            <button @click='send2'>将数据发送给第2个组件</button>
+
         </div>
     </template>
     <template id="tmp3">
@@ -60,9 +60,9 @@
                             age: 14
                         }
                     },
-                    methods: {
-                        send2() { busvm.$emit('data-2', this.age) }
-                    },
+                    // mounted() {
+                    //     busvm.$emit('data-2', this.age)
+                    // },
                 },
                 'myComp3':
                 {
