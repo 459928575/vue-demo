@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非父子组件</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-comp1></my-comp1>
+        <my-comp2></my-comp2>
+        <my-comp3></my-comp3>
+    </div>
+
+    <template id="tmp1">
+        <div>
+            <h3>tmp1---{{name}}</h3>
+            <button @click='send'>将数据发送给第三个组件</button>
+        </div>
+    </template>
+    <template id="tmp2">
+        <div>
+            <h3>tmp2---{{age}}</h3>
+        </div>
+    </template>
+    <template id="tmp3">
+        <div>
+            <h3>tmp3---{{name}}</h3>
+        </div>
+    </template>
+    <script>
+        var busvm = new Vue();
+        var vm = new Vue({
+            el: '#app',
+            data: { title: '大家好', name: '' },
+            methods: {},
+            components:
+            {
+                'myComp1':
+                {
+                    template: '#tmp1',
+                    data() {
+                        return {
+                            name: 'zhangsan'
+                        }
+                    },
+                    methods: {
+                        send() { busvm.$emit('data-1', this.name) }
+                    },
+                },
+                'myComp2':
+                {
+                    template: '#tmp2',
+                    data() {
+                        return {
+                            age: 14
+                        }
+                    },
+                },
+                'myComp3':
+                {
+                    template: '#tmp3',
+                    data() {
+                        return {
+                            name: ''
+                        }
+                    },
+                    mounted() {
+                        busvm.$on('data-1', name => { this.name = name })
+                    },
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>

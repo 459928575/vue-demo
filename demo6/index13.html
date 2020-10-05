@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父props向子传递数据</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h4>父组件：请输入需要传递给子组件的title值：<input type="text" v-model="title"></h4>
+       <child-node :parenttilte="title"></child-node>
+    </div>
+    <template id="child">
+         <div>           
+            <h4>子组件：实时获取父组件Vue实例中的属性值:{{parenttilte}}</h4>
+         </div>
+    </template>
+    <script>      
+        new Vue({//父组件
+            el:"#app",
+            data:{
+                title:"大家好"
+            },
+            components:{
+                'childNode':{//子组件
+                    template:"#child", 
+                    props:['parenttilte']                 
+                }
+            }
+        })
+      
+    </script>
+</body>
+</html>

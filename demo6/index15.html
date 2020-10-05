@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子(emit)数据变化父组件同步变化</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h4>父组件获取子组件中的name属性值:{{name}}</h4>
+        <child-node @send-data="getData" :name.sync='name' ></child-node>
+    </div>
+    <template id="child">
+        <div>
+            <h4>子组件name属性值：{{name}}</h4>
+            <!-- 0单击按钮触发事件 -->
+            <button @click="send">将子组件中的数据向上传递给父组件</button>
+            <input type="text" name="" id="" v-model="name">
+        </div>
+    </template>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                title: '大家好',
+                name:''
+            },
+            methods: {
+                // 子组件通过事件sendData将数据发送过来了，所以这里getData定义1个形参接受传过来的数据，形参名可以任意
+                getData(name1) {
+                    this.name = name1;//把接收到的数据赋给预先定义好的data中的属性
+                }
+            },
+            components: {
+                'childNode': {
+                    data() {
+                        return {
+                            name: '徐照兴'
+                        }
+                    },
+                    template: '#child',
+                    methods: {
+                        send() {
+                            //1使用this.$emit()触发一个事件（事件名建议用-连接，每个单词首字母小写），发送数据
+                            this.$emit('send-data', this.name);
+                        }, 
+                    },
+                    watch:{
+                        name(newValue){ this.$emit('update:name',newValue)}
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
