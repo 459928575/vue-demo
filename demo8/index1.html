@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <style>
+        .active {
+            font-size: 20px;
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <router-link to="/about">关于我们</router-link>
+            <router-link to="/news">新闻</router-link>
+        </div>
+        <div>
+            <router-view></router-view>
+        </div>
+    </div>
+    <script>
+        var About={ template: '<h3>我是关于我们页面的内容</h3>'}
+        var News={template: '<h3>我是新闻页面的内容</h3>'}
+        const routes= [
+                    { path: '/about', component: About },
+                    { path: '/news', component: News },
+                ]
+        const router=new VueRouter({ routes,mode:'history' })  // routes:routes  简写 routes 
+        var vm = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            //注入路由
+            router: router
+        })
+    </script>
+</body>
+
+</html>

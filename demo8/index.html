@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue router</title>
+    <script src="js/vue.js"></script>
+    <!-- <script src="js/axios.js"></script> -->
+    <script src="js/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+         <div>
+            <router-link to="/about">关于我们</router-link>
+            <router-link to="/news">新闻</router-link>
+         </div>
+         <div>
+            <router-view></router-view>
+         </div>
+        
+    </div>
+    <script>
+        var datamodel={
+
+        }
+        var vm=new Vue({
+            el:'#app',
+            data:datamodel,
+            methods: {
+                
+            },
+          router: new VueRouter({
+               routes: [
+                   { path:'/about',component:{template:'<h3>关于我们的内容</h3>'}  },
+                   { path:'/news',component:{template:'<h3>我是新闻的内容</h3>'}  }
+               ] 
+            })
+            
+        })
+    </script>
+</body>
+</html>
