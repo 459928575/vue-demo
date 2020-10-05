@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+</head>
+<body>
+    <div id="app">
+
+          <child>
+              <template v-slot:c1>
+                  <div>
+                       nihao  
+                  </div>
+              </template>
+          </child>
+    </div>
+      <template id='child' >
+           <div>
+            <slot name='c1'></slot>
+              <h3>hello wolrd! </h3>
+           </div>
+      </template>
+    <script>
+        var datamodel={
+
+        }
+        var vm=new Vue({
+            el:'#app',
+            data:datamodel,
+            methods: {
+                
+            },
+            components:{
+               'child':{
+                    template:'#child',
+                    methods: {
+                        
+                    },
+                    data() {
+                        return {
+                            
+                        }
+                    },
+               }
+
+            }
+
+        })
+    </script>
+</body>
+</html>
