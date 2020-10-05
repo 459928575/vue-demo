@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ajax -axios get ok</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        请输入github ID：<input type="text" name="" id="" v-model="uid" placeholder="yyx990803">
+        <button @click='getUserByUid(uid)'> 获取github 信息</button>
+        <br>
+        姓名：{{user.name}} <br>
+        头像：<img :src='user.avatar_url' alt="" width="150px" height="150px">  <br>
+        公司：{{user.company}}<br>
+        blog:{{user.blog}}<br>
+        public_repos:{{user.public_repos}}<br>
+        repos_url:{{user.repos_url}}<br>
+        followers:{{user.followers}}<br>
+        followers_url:{{user.followers_url}}<br>
+        public_repos:{{user.public_repos}}<br>
+        位置：{{user.location}}<br>
+        url：{{user.url}}<br>
+        创建时间：{{user.created_at}}<br>
+        更新时间：{{user.updated_at}}<br>
+        id：{{user.id}}<br>
+        node_id：{{user.node_id}}<br>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                user: {
+
+                },
+                uid: 'yyx990803'
+            },
+            methods: {
+                getUserByUid(uid) {
+                    axios.get(`https://api.github.com/users/${uid}`)
+                        .then(resp => { this.user = resp.data; console.log(resp) })
+                        .catch(err => { console.log(err) })
+                }
+            },
+
+        })
+
+
+    </script>
+</body>
+
+</html>

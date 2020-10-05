@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ajax -axios get ok</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                user: {
+                },
+                uid: 'yyx990803'
+            },
+            methods: {
+                getUserByUid(uid) {
+                    axios({
+                        method:'post',//get post
+                        url:'xxx',
+                        data:{   //入参
+                            'xx':'xx',
+                             'xx':'xx'
+                        }
+                    })
+                        .then(resp => { this.user = resp.data; console.log(resp) })
+                        .catch(err => { console.log(err) })
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

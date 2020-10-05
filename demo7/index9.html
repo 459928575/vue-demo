@@ -9,7 +9,8 @@
 </head>
 <body>
     <div id="app">
-        <button @click='sendGet'> 调用get 发送ajax</button>
+      请输入github ID：<input type="text" name="" id="" v-model="uid">
+        <button @click='getUserByUid(uid)'> 获取github 信息</button>
     </div>
     <script>
         var  p=new URLSearchParams();
@@ -19,18 +20,21 @@
         el:'#app',
         data:{ 
             user:{
-                name:'zhansan1',
-                age:2321
-            }
+              
+            },
+            uid:''
         },
         methods: {
-            sendGet(){
-           axios.post('vuehandle.ashx',p)
-           .then(resp=>{ console.log(resp.data)})
-           .catch(err=>{ console.log(err)})
-           } 
+            getUserByUid(uid){
+              axios.get(`https://api.github.com/users/${uid}`)
+              .then(resp=>{ console.log(resp.data)})
+              .catch(err=>{console.log(err)})
+
+            }
         },
-    })  
+    })
+
+        
     </script>
 </body>
 </html>
