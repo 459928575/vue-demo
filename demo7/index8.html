@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ajax -axios get  ok</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <button @click='sendGet'> 调用get 发送ajax</button>
+    </div>
+    <script>
+        var  p=new URLSearchParams();
+         p.append('name','ls')
+         p.append('age',30)
+    var vm=new Vue({
+        el:'#app',
+        data:{ 
+            user:{
+                name:'zhansan1',
+                age:2321
+            }
+        },
+        methods: {
+            sendGet(){
+           axios.post('vuehandle.ashx',p)
+           .then(resp=>{ console.log(resp.data)})
+           .catch(err=>{ console.log(err)})
+           } 
+        },
+    })
+
+        
+    </script>
+</body>
+</html>

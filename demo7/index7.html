@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ajax -axios get  ok</title>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <button @click='sendGet'> 调用get 发送ajax</button>
+    </div>
+    <script>
+    var vm=new Vue({
+        el:'#app',
+        data:{ 
+            user:{
+                name:'zhansan11',
+                age:2322
+            }
+        },
+        methods: {
+            sendGet(){
+           axios.post('vuehandle.ashx',this.user,
+            {transformRequest:[function (data) {
+                var p=""
+                for(var item in data)
+                {
+                  p+=item+'='+data[item]+'&'
+
+                }
+                return p;
+            }] }
+           )
+           .then(resp=>{ console.log(resp.data)})
+           .catch(err=>{ console.log(err)})
+           } 
+        },
+    })
+
+        
+    </script>
+</body>
+</html>
