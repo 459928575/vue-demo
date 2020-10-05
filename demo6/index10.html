@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+       <h4>父组件：传递给值给子组件
+           <input type="text" name="" id="" v-model="title">
+       </h4>
+       <child-node :ptitle='title'></child-node>
+    </div>
+    <template id='child'>
+        <div>
+           <h4>子组件实时获取父组件Vue 实例中的值{{ptitle}}
+
+           </h4>
+         </div>
+    </template>
+   
+
+    <script>
+
+        var vm = new Vue({ //根组件
+            el: "#app",
+            data:
+            {
+                 title:""
+            },
+            components: {//父组件
+                'childNode': {
+                     template: '#child',
+                     props:['ptitle']
+                    }
+
+            },
+
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <my-comp1>     
+        </my-comp1>
+
+    </div>
+    <script type="text/x-template" id='tmp1'>
+        <div>
+           <h3>我是父组件-{{msg1}}</h3>
+           <h4>-{{msg1}}-{{name}}-{{age}}-{{user.id}}-{{user.username}}</h4>
+           <hr>
+           <my-comp2 :message='msg1' :name1='name' :age1='age' :user1="user"></my-comp2>
+        </div>
+    </script>
+
+    <template id='tmp2'>
+        <div>
+            <h3>我是子组件-{{msg2}}</h3>
+            <!-- <h4>-{{msg2}}-{{name}}-{{age}}-{{user.id}}-{{user.username}}</h4> -->
+            <hr>
+            <h2>访问父组件的值--{{message}}--{{name1}}--{{age1}}--{{user1.id}}-{{user1.username}}</h2>
+         </div>
+    </template>
+   
+
+    <script>
+
+        var vm = new Vue({ //根组件
+            el: "#app",
+            data:
+            {
+                CurrentComponet: 'my-hello'
+            },
+            components: {//父组件
+                'my-comp1': {
+                    template: '#tmp1',
+                    data() {
+                         return { msg1: "小豆子学堂1", name: "zhangsan", age:10, user: { id: '1001', username: 'list' } }
+                    },
+                    components: { //子组件
+                        'my-comp2': {
+                            template: '#tmp2',
+                            // props:['message','userid'],
+                            props:{
+                                  message:String,
+                                  name1:{type:String,required:true},
+                                  age1:{type:Number,default:0,
+                                        validator:function (params) { 
+                                        return params>0
+                                  }},
+                                  user1:{
+                                        type:Object,
+                                  }
+                            },
+                            data() {
+                                return { msg2: "小豆子学堂2", name: "zhangsan2", age:24, user: { id: '1002', username: 'list' } }
+                            },
+                        }
+                    }
+                }
+            },
+
+        })
+
+
+    </script>
+</body>
+
+</html>

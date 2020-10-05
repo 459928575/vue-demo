@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-comp1></my-comp1>
+       
+    </div>
+    <script type="text/x-template" id="comp1">
+        <div>
+            <h3>我是comp1父组件</h3>
+            <h3>访问自己组件中的数据：{{msg}} {{name}} {{age}} {{user.username}}</h3>         
+            <h4>访问子组件中的数据:{{sex}},{{height}}</h4>
+            <hr>
+            <my-comp2 :message="msg" :name="name" :age="age" :user="user" @send-data='getdata'></my-comp2>
+        </div>
+    </script>
+    <template id="comp2">
+         <div>
+            <h3>我是comp2子组件</h3>
+            <h3>访问父组件中的数据：{{message}} {{name}} {{age}} {{user.username}}</h3>         
+         <h4>子组件访问自己的数据：{{sex}},{{height}}</h4>
+         <button @click='send' >将子组件中的数据向上传递给父组件</button>
+        </div>
+    </template>
+    <script> 
+     
+        new Vue({//根组件
+            el:"#app",
+            data:{
+                currentComponent:'my-hello'
+            },
+            components:{
+                'my-comp1':{//父组件
+                    template:"#comp1",
+                    data(){
+                        return{
+                            msg:'小豆子学堂',
+                            name:'zhangshan',
+                            age:25,
+                            user:{id:'1001',username:'lisi'},
+                            sex:'',
+                            height:0
+                        }
+                    },
+                    methods: {
+                        getdata(sex1,height1)
+                        { 
+                          this.sex=sex1
+                          this.height=height1
+                        }
+                    },
+                   
+                    components:{
+                        'my-comp2':{//子组件
+                            template:'#comp2',
+                            props:['message','name','age','user'],
+                           
+                          data() {
+                              return {
+                                  sex:"male",
+                                  height:189
+                              }
+                          },
+                          methods: {
+                                send(){ this.$emit('send-data',this.sex,this.height) }
+                            },
+                           
+                        }
+                    }
+                }
+            }
+        })
+      
+    </script>
+</body>
+</html>
