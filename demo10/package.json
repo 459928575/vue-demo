@@ -1,0 +1,19 @@
+{
+  "name": "demo10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "showVersion": "webpack -v",
+    "build": "webpack ./src/main.js -o ./dist/bundle.js --mode development",
+     "watch":"webpack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}

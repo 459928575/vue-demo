@@ -12,6 +12,11 @@ console.log('------------------------');
 const color=['red','blue']
 const [first,second]=color
 console.log(first);
+console.log('------------------------');
+const color1=['red','black']
+const colorfull=[...color1,'yellow','green']
+console.log('colorfull:'+colorfull);
+
 
 
 
