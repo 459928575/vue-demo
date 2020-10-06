@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-     "showVersion":"webpack -v"
+     "showVersion":"webpack -v",
+     "build":"webpack src/main.js -o dist/bundle.js"
   },
   "keywords": [],
   "author": "",
