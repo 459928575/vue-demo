@@ -6,6 +6,6 @@
 //  const v=123
 //  export default { t,n ,v}
 
-export const name='vimc1'
+export const name='vimc10'
 export const age=12
 export function add(num1,num2){ return num1+num2} 
