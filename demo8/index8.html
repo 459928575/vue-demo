@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <style>
+     .container{
+         background-color: blanchedalmond;
+         margin-top: 10px;
+         width: 600px;
+         height: 300px;
+     }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <button type="button" @click="goMenthod">路由与组件解绑示例</button>
+        <div class="container">
+            <router-view></router-view>
+        </div>
+       
+    </div>
+    
+    <script>
+        const mycomp={
+            props:['id','name'],
+            template:'<h3>组件获取到了路由传递的参数{{id}}---{{name}},但是此处并没有通过 $route去获取。</h3>'
+        }
+       const router=new VueRouter({
+           routes:[
+               {
+                   path:'/myRouter',
+                   component:mycomp,
+                   props:route=>({
+                       id:route.query.id,
+                       name:'zhangsan'
+                   })
+               }
+           ]
+       })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg:'987'
+            },
+            methods:{
+                goMenthod(){
+                    this.$router.push({
+                        path:'/myRouter?id='+this.msg //query方式传参
+                    })
+                }
+            },
+            //注入路由
+            // router: router
+            router
+        })
+    </script>
+</body>
+
+</html>

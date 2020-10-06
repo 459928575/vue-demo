@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <style>
+        .active {
+            font-size: 20px;
+            color: red;
+            text-decoration: none;
+        }
+
+        .container {
+            background-color: blanchedalmond;
+            margin-top: 10px;
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <router-link :to="{name:'aa'}">关于我们</router-link>
+            <router-link to="/news">新闻</router-link>
+            <router-link to="/account">账号</router-link>
+        </div>
+        <div class="container">
+            <!-- 路由出口 -->
+            <router-view></router-view>
+        </div>
+    </div>
+    <template id="tmpaccount">
+        <div>
+            <h3>这里是账户页面</h3>
+            <ul>
+                <router-link to='/account/login' tag="li">登录</router-link>
+                <router-link :to="{name:'reg'}" tag="li">注册</router-link>
+            </ul>
+            <button @click="replace">替换路由</button>
+            <div>
+                <router-view></router-view>
+            </div>
+        </div>
+    </template>
+    <template id="tmplogin">
+        <form action="">
+        <div>
+            <h4>欢迎来到登录页面，请输入登录信息</h4>
+            用户名：<input type="text" name="name" v-model="name"><br>
+            密码：<input type="password" name="pwd" v-model="pwd"><br>
+            <input type="submit" value="提交" @click="submit">
+        </div>
+    
+        <h4>你输入的登录信息是,用户名:{{this.$route.query.name}},密码:{{this.$route.query.pwd}}</h4>
+     </form>
+    </template>
+    <script>
+        var About = {
+            template: '<h3>我是关于我们页面的内容</h3>',
+        }
+        var News = {
+            template: '<h3>我是新闻页面的内容</h3>'
+        }
+        var Account = {
+            template: '#tmpaccount',
+            methods:{
+                replace(){
+                    this.$router.replace({path:'/news'})
+                }
+            }
+        }
+        var Login = {
+            template: '#tmplogin',
+            data(){
+                return{
+                    name:'',
+                    pwd:''
+                }
+            },
+           
+            methods:{
+                submit(){
+                    this.$router.push({
+                        path:'/account/register',query:{name:this.name,pwd:this.pwd}
+                    })
+                }
+            }
+        }
+        var Register = {
+            template: '<h3>我是注册页面的内容,用户名：{{this.$route.query.name}},密码:{{this.$route.query.pwd}}</h3>'
+        }
+        const routes = [
+            { path: '/about',name:'aa', component: About },
+            { path: '/news', component: News },
+            {
+                path: '/account',
+                component: Account,
+                children: [
+                    { path: 'login', component: Login },
+                    { path: 'register', name:'reg',component: Register },
+                ]
+            },
+            { path: '*', redirect: '/about' },
+        ]
+        const router = new VueRouter({
+            // routes:routes
+            routes,
+            // mode:'history',
+            linkActiveClass: 'active'
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            //注入路由
+            // router: router
+            router
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <style>
+        .container {
+            height: 500px;
+        }
+
+        .top {
+            background-color: beige;
+            width: 100%;
+            height: 80px;
+        }
+
+        .left {
+            float: left;
+            width: 20%;
+            height: 100%;
+            background-color: burlywood;
+        }
+
+        .right {
+            float: left;
+            width: 80%;
+            height: 100%;
+            background-color: aquamarine;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="top">
+            <!-- 在 router-view 中，默认的 name 属性值为 default -->
+            <router-view></router-view>
+        </div>
+        <div class="container">
+            <div class="left">
+                <router-view name="sidebar"></router-view>
+            </div>
+            <div class="right">
+                <router-view name="main"></router-view>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <template id="sidebar">
+        <div class="sidebar">
+            sidebar
+        </div>
+    </template>
+
+    <script>
+        // 1、定义路由跳转的组件模板
+        const header = {
+            template: '<div class="header"> header </div>'
+        }
+        const sidebar = {
+            template: '#sidebar'
+        }
+        const main = {
+            template: '<div class="main"> main </div>'
+        }
+        const routes = [
+            {
+                path: '/',
+                components: {
+                    default: header,
+                    sidebar: sidebar,
+                    main: main
+                }
+            }
+        ]
+        const router=new VueRouter({
+            // routes:routes
+            routes //ES6语法
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            //注入路由
+            // router: router
+            router
+        })
+    </script>
+</body>
+
+</html>

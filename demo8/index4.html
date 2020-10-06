@@ -8,13 +8,14 @@
     <script src="js/vue.js"></script>
     <script src="js/vue-router.js"></script>
     <style>
-        .active{
+        .active {
             font-size: 20px;
             color: red;
             text-decoration: none;
         }
-        .container{
-            background-color: wheat;
+
+        .container {
+            background-color: blanchedalmond;
             margin-top: 10px;
             width: 600px;
             height: 300px;
@@ -27,23 +28,25 @@
         <div>
             <router-link to="/about">关于我们</router-link>
             <router-link to="/news">新闻</router-link>
-            <router-link to="/account">账户</router-link>
+            <router-link to="/account">账号</router-link>
         </div>
         <div class="container">
             <router-view></router-view>
         </div>
     </div>
-     <template id="tmpaccount">
-         <div>
-            <h3>账号页面内容</h3>
-            <router-link to="/account/login" tag='button'>登录</router-link>
-            <router-link to="/account/register" tag='button'>注册</router-link>
+    <template id="tmpaccount">
+        <div>
+            <h3>这里是账户页面</h3>
+            <ul>
+                <router-link to='/account/login?name=xzx&pwd=123' tag="li">登录</router-link>
+                <router-link to='/account/register/xzx/123456' tag="li">注册</router-link>
+            </ul>
+            
             <div>
                 <router-view></router-view>
             </div>
-         </div>
-         
-     </template>
+        </div>
+    </template>
     <script>
         var About = {
             template: '<h3>我是关于我们页面的内容</h3>',
@@ -51,36 +54,34 @@
         var News = {
             template: '<h3>我是新闻页面的内容</h3>'
         }
-
-        var Acount = {
+        var Account = {
             template: '#tmpaccount'
         }
         var Login = {
-            template: '<h3>我的登录</h3>'
+            template: '<h3>我是登录页面的内容,获取账户参数：{{$route.query}},用户名：{{$route.query.name}},密码：{{$route.query.pwd}}</h3>'
         }
         var Register = {
-            template: '<h3>我的注册页面</h3>'
+            template: '<h3>我是注册页面的内容,获取账户参数：{{$route.params}},用户名：{{$route.params.name}},密码：{{$route.params.pwd}},路由路径：{{$route.path}}</h3>'
         }
         const routes = [
             { path: '/about', component: About },
             { path: '/news', component: News },
-            { 
+            {
                 path: '/account',
-                component: Acount,
-                children:[
-                          { path: 'login', component: Login },
-                          { path: 'register', component: Register },
+                component: Account,
+                children: [
+                    { path: 'login', component: Login },
+                    { path: 'register/:name/:pwd', component: Register },
                 ]
-                 
             },
-             { path: '*', redirect:'/about' },
+            { path: '*', redirect: '/about' },
         ]
-        const router=new VueRouter({
-                // routes:routes
-                routes,
-                //  mode:'history',
-                linkActiveClass:'active'
-            })
+        const router = new VueRouter({
+            // routes:routes
+            routes,
+            // mode:'history',
+            linkActiveClass: 'active'
+        })
         var vm = new Vue({
             el: "#app",
             data: {
