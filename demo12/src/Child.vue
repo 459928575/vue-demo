@@ -11,7 +11,7 @@
 <script>
    export default 
     {  
-       data () { return { msg:"vicm -child"} }, 
+       data () { return { msg:"vicm -child1444444444444"} }, 
        components: {},
      }
 </script>

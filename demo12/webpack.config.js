@@ -26,7 +26,7 @@ module.exports = {
            // 3.请确保引入这个插件！（实例化插件）
         new VueLoaderPlugin(),
          //(3)实例化模块热替换插件
-        //  new webpack.HotModuleReplacementPlugin()
+          new webpack.HotModuleReplacementPlugin()
 
 
     ],
