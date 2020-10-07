@@ -3,7 +3,7 @@
 const HtmlWebpackPlugin=require('html-webpack-plugin');
 const path=require("path")
 module.exports={
-    mode:'production',//production 、none
+    mode:'none',//production 、none
     //入口，指定要打包的文件在哪里
     entry:'./src/main.js',
 
