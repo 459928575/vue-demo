@@ -23,6 +23,7 @@ const routes = [
     path: "/",
     name: "layout",
     component: Layout,
+     redirect:"/home",
     children: 
     [
       { path: "/home", name: "home", component: Home ,meta:{title:"首页"}},

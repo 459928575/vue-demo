@@ -1,7 +1,7 @@
 <template>
   <div id="login-container">
     <el-form :ref="form" :rules="rules" :model="form" label-width="60px" class="login-form">
-      <h2 class="login-title">小豆子图书信息管理系统</h2>
+      <h2 class="login-title">Vicm 信息管理系统</h2>
       <el-form-item label="账号" prop="username">
         <el-input v-model="form.username" placeholder="请输入账号"></el-input>
       </el-form-item>
