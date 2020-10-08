@@ -4,7 +4,7 @@
       <img class="logo" src="@/assets/mylogo.png" />
       <span class="title">小豆子图书信息管理系统</span>
     </a>
-    <el-dropdown >
+    <el-dropdown  @command="handleCommand">
       <span class="el-dropdown-link">
         您好：
         <i class="el-icon-arrow-down el-icon--right"></i>
@@ -39,7 +39,44 @@
     </el-dialog>
   </div>
 </template>
+<script>
+import {logout} from '../api/login.js'
+export default {
+    methods: {
+          handleCommand(command) {
+      // this.$message('click on item ' + command);
+      switch (command) {
+        case "a":
+         this.$message("单击了修改密码 ");
+          // this.updatePwd();
+          break;
+        case "b":
+            this.$message('单击了退出系统 ');
+          const token= localStorage.getItem("xdz-manager-token")
+            logout(token)
+            .then(resp=>{ 
+                 const resp1= resp.data
+                 if (resp1.flag) {
+                     localStorage.removeItem("xdz-manager-token")
+                      localStorage.removeItem("xdz-manager-user")
+                      this.$router.push('/login')
+                 }
+                 else{
+                   this.$message({
+                                message: resp1.msg,
+                                type: 'warning',
+                                duration:1000
+                                });
+                 }
+              })
+        //  this.LogoutSystem()
+          break;
+      }
+    }
+    },
+}
 </script>
+
 <style scoped>
 .logo {
   width: 25px;

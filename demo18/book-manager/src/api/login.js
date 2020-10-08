@@ -17,3 +17,10 @@ export function getUserInfo(token) {
         method: "get"  
     })
 }
+
+export function logout(token){
+    return myaxios({
+        url:VUE_APP_SERVICE_URL+`/user/logout/${token}`,
+        method:'post',
+    })
+}

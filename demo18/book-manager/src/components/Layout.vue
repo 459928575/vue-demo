@@ -44,7 +44,7 @@ export default {
    right: 0px;
    bottom: 0px;
    top:50px;
-   padding: 10px;
+   padding: 5px;
    overflow-y: auto;
 
 }
