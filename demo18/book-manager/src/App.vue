@@ -8,7 +8,11 @@
 </template>
 
 <style >
- body{ font:"微软雅黑"}
+ body{ 
+   font:"微软雅黑";
+   margin: 0 auto;
+   
+   }
 
 
 </style>
