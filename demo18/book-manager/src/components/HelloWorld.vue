@@ -1,14 +1,30 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    
+    <h3>{{list}}</h3>
+    <ul>
+      <li v-for="(value,index) in list" :key="index">{{value.bookname}}--{{value.price}}</li>
+    </ul>
   </div>
 </template>
 
 
 <script>
-import myaxios from '../utils/myaxios.js'
+// import myaxios from '../utils/myaxios.js'
+import testApi from '@/api/test.js'
 export default {
+   data() {
+     return {
+       list:[]
+     }
+   },
+  created() {
+    this.fetchData()
+    testApi.getList().then(resp=>{console.log(resp.data);this.list=resp.data }).catch(err=>{console.log(err);})
+  },
+  methods: {
+      fetchData(){}
+  },
   name: 'HelloWorld',
   props: {
     msg: String
