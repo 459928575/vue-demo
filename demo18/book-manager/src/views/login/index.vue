@@ -45,6 +45,33 @@ export default {
           login(this.form.username, this.form.password)
             .then((resp) => {
               console.log(resp.data);
+              const resp1=resp.data;
+              if (resp1.flag) {
+                  getUserInfo(resp1.data.token)
+                  .then(resp=>{
+                     console.log(resp.data);
+                     const respUser=resp.data;
+                     if (respUser.flag) {
+                       localStorage.setItem("xdz-manager-user",JSON.stringify(respUser.data) )
+                        localStorage.setItem("xdz-manager-token",resp1.data.token)
+                        this.$router.push('./')
+                     }
+                      else{
+                          this.$message({
+                                message: respUser.msg,
+                                type: 'warning'
+                                });
+                      }
+                     
+                  })
+              }
+               else{
+                          this.$message({
+                                message: resp.data.msg,
+                                type: 'warning'
+                                });
+                      }
+
             })
             .catch((err) => {
               console.log(err);

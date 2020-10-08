@@ -10,8 +10,10 @@ export function login(username, password) {
 }
 
 export function getUserInfo(token) {
+    console.log('token:'+token);
+    
     return myaxios({
-        url: `/user/info/${token}`,
+        url: VUE_APP_SERVICE_URL+`/user/info/token=${token}`,
         method: "get"  
     })
 }
