@@ -1,0 +1,60 @@
+.agreement-bind {
+    padding: 15px;
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .header-left {
+            width: 80px;
+            line-height: 40px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .header-content {
+            flex: 1;
+            line-height: 40px;
+            font-size: 16px;
+            min-height: 40px;
+        }
+    }
+    .main-part {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .main-part-left {
+            width: 80px;
+            line-height: 40px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .main-part-content {
+            border: 1px solid #e6e6e6;
+            border-radius: 6px;
+            padding: 10px 20px;
+            width: 600px;
+            line-height: 30px;
+            font-size: 16px;
+            min-height: 40px;
+            height: 600px;
+            overflow: auto;
+            white-space: pre-wrap; //用于解决v-html不换行问题,
+        }
+    }
+    .bottom-part {
+        padding-top: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .bottom-part-left {
+            width: 80px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .bottom-part-content {
+            width: 200px;
+        }
+    }
+}

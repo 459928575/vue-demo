@@ -1,0 +1,35 @@
+.box {
+    background-color: #ffffff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    .search-part {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 6px;
+        // margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        .el-radio-group {
+            margin-right: 15px;
+        }
+        .search-input {
+            width: 200px;
+            margin-right: 20px;
+        }
+        .search-select {
+            width: 200px;
+            margin-right: 20px;
+        }
+        .search-btn {
+            margin-left: 10px;
+        }
+        .status-group {
+            margin-right: 10px;
+        }
+        .add-btn {
+            margin-left: auto;
+        }
+    }
+}

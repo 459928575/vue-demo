@@ -8,9 +8,7 @@ module.exports=
    productionSourceMap:false,
    devServer:{ 
       port: 9001 ,
-       open: true,
-       https:false,
-        host:"localhost"
+      open:true
       // , proxy:{
       //    '/dev-apis':{
       //       target:'url',

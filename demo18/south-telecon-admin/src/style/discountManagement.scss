@@ -1,0 +1,188 @@
+.service-charge-management {
+    background-color: #fff;
+    padding: 15px;
+    .discount-part {
+        .discount-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 15px;
+            .title {
+                background-color: #fff;
+                margin-right: 20px;
+                font-size: 16px;
+                width: 80px;
+            }
+            .add-btn {
+                margin-left: 35px;
+            }
+            .content-input {
+                width: 220px;
+            }
+            .percentage {
+                margin-left: 10px;
+                font-size: 16px;
+            }
+            .desc-container {
+                .desc {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    .text {
+                        margin-right: 15px;
+                    }
+                    .number-input {
+                        margin-right: 15px;
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+    .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
+        .title {
+            background-color: #fff;
+            margin-right: 30px;
+            margin-top: 15px;
+            font-size: 16px;
+            width: 80px;
+        }
+        .right-content {
+            // background-color: #FBFBFB;
+            width: 900px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-end;
+            // padding-bottom: 30px;
+            padding: 0 15px 15px 15px;
+            border: 2px solid #f2f2f2;
+            border-radius: 6px;
+            .content-container {
+                .content-list {
+                    // background-color: #fbfbfb;
+                    width: 720px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                    margin-top: 15px;
+                    .list-title {
+                        font-size: 16px;
+                    }
+                    .charge-name {
+                        width: 200px;
+                        border-radius: 6px;
+                    }
+                    .charge-price {
+                        width: 150px;
+                        border-radius: 6px;
+                    }
+                    .delete-btn {
+                        width: 150px;
+                    }
+                }
+            }
+            .add-btn {
+                margin-left: 15px;
+            }
+        }
+    }
+    .middle {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-bottom: 30px;
+        // margin-bottom: 20px;
+        .title {
+            background-color: #fff;
+            margin-right: 30px;
+            margin-top: 15px;
+            font-size: 16px;
+            width: 80px;
+        }
+        .right-content {
+            // background-color: #fbfbfb;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 900px;
+            border-bottom: 1px solid #f2f2f2;
+            padding: 15px;
+            border: 2px solid #f2f2f2;
+            border-radius: 6px;
+            .content-container {
+                background-color: #fff;
+                border: 2px solid #f2f2f2;
+                max-height: 200px;
+                overflow: auto;
+                .content-list {
+                    width: 720px;
+                    .product-name {
+                        margin-top: 10px;
+                        padding-left: 15px;
+                        font-size: 16px;
+                    }
+                }
+            }
+            .add-btn {
+                margin-left: 15px;
+            }
+        }
+    }
+    .bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .title {
+            background-color: #fff;
+            margin-right: 30px;
+            margin-top: 15px;
+            font-size: 16px;
+            width: 80px;
+        }
+        .right-content {
+            background-color: #fff;
+            height: 30px;
+            width: 900px;
+            .save-btn {
+                width: 150px;
+                // background-color: #058CE8;
+            }
+            .back-btn {
+                width: 150px;
+                // background-color: #fff;
+            }
+        }
+    }
+    // 弹窗部分
+    .discount-modal {
+        .add-product-container {
+            .header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                .search-input {
+                    width: 50%;
+                }
+            }
+            .product-table {
+                margin: 15px 0;
+            }
+            .dialog-footer {}
+        }
+    }
+}

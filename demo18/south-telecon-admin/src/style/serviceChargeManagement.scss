@@ -1,0 +1,83 @@
+.service-charge-management {
+    background-color: #fff;
+    padding: 15px;
+    .discount-part {
+        .discount-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 15px;
+            .title {
+                background-color: #fff;
+                margin-right: 30px;
+                font-size: 16px;
+                width: 80px;
+            }
+            .content-input {
+                width: 220px;
+            }
+            .desc {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                .text {
+                    margin-right: 15px;
+                }
+                .number-input {
+                    margin-right: 15px;
+                    width: 100px;
+                }
+            }
+        }
+    }
+    .middle {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding-bottom: 30px;
+        .title {
+            background-color: #fff;
+            font-size: 18px;
+            width: 80px;
+        }
+        .right-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-radius: 6px;
+            .save-btn {
+                width: 150px;
+            }
+            .back-btn {
+                width: 150px;
+            }
+        }
+    }
+    // .bottom {
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: flex-start;
+    //     align-items: center;
+    //     .title {
+    //         background-color: #fff;
+    //         font-size: 18px;
+    //         width: 120px;
+    //         height: 30px;
+    //     }
+    //     .right-content {
+    //         background-color: #fff;
+    //         height: 30px;
+    //         width: 900px;
+    //         .save-btn {
+    //             width: 150px;
+    //         }
+    //         .back-btn {
+    //             width: 150px;
+    //         }
+    //     }
+    // }
+}

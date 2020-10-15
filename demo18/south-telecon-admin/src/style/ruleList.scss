@@ -1,0 +1,24 @@
+.order-details {
+    .order-info {
+        overflow: auto;
+        .list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            line-height: 40px;
+            &.border {
+                border-bottom: 1px dashed #dcdfe6;
+            }
+            .list-title {
+                font-size: 16px;
+            }
+            .list-content {
+                text-align: right;
+            }
+        }
+    }
+}
+
+

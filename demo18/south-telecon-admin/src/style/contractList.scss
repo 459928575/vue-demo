@@ -1,0 +1,85 @@
+.add-modal {
+    .details-container {
+        margin: -20px auto -30px;
+        padding-top: 20px;
+        .details-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 16px;
+            min-height: 40px;
+            margin-bottom: 20px;
+            .left {
+                margin-right: 10px;
+                width: 80px;
+            }
+            .right {
+                width: 50%;
+                color: #999;
+                &.w-75 {
+                    width: 75%;
+                }
+            }
+        }
+    }
+}
+
+.order-details {
+    .order-info {
+        overflow: auto;
+        .list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            line-height: 40px;
+            border-bottom: 1px dashed #dcdfe6;
+            &.border-none {
+                border: none;
+            }
+            .list-title {
+                font-size: 16px;
+            }
+            .list-content {
+                text-align: right;
+                &.status {
+                    padding: 0 10px;
+                    border-radius: 4px;
+                    height: 30px;
+                    line-height: 30px;
+                    font-weight: 600;
+                    &.no-submit {
+                        background-color: #F56C6C;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+        .agreement-part {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0 20px;
+            line-height: 40px;
+            border-bottom: 1px dashed #dcdfe6;
+            .agreement-title {
+                font-size: 16px;
+            }
+            .agreement-content {
+                overflow: auto;
+                max-height: 600px;
+                font-size: 16px;
+                line-height: 30px;
+                text-indent: 2rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

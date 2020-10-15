@@ -1,0 +1,26 @@
+.add-modal {
+    .details-container {
+        margin: -20px auto -30px;
+        padding-top: 20px;
+        .details-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 16px;
+            min-height: 40px;
+            margin-bottom: 20px;
+            .left {
+                margin-right: 10px;
+                width: 120px;
+            }
+            .right {
+                width: 50%;
+                color: #999;
+                &.w-75 {
+                    width: 75%;
+                }
+            }
+        }
+    }
+}

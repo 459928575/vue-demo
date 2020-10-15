@@ -1,0 +1,153 @@
+.order-details {
+    .order-info {
+        overflow: auto;
+        .product-desc {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            .product-img {
+                width: 100px;
+                height: 100px;
+                border-radius: 8px;
+            }
+            .product-name {
+                flex: 1;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: right;
+            }
+        }
+        .product-content {
+            padding: 0 20px;
+            font-size: 16px;
+            line-height: 30px;
+            white-space: pre-wrap; //用于解决v-html不换行问题,
+        }
+        .list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            line-height: 40px;
+            &.border {
+                border-bottom: 1px dashed #dcdfe6;
+            }
+            .list-title {
+                font-size: 16px;
+                &.bold {
+                    font-weight: 600;
+                }
+            }
+            .list-content {
+                text-align: right;
+                &.green {
+                    color: green;
+                    font-weight: 600;
+                }
+                &.status {
+                    padding: 0 10px;
+                    border-radius: 4px;
+                    height: 30px;
+                    line-height: 30px;
+                    font-weight: 600;
+                    &.no-submit {
+                        background-color: #F56C6C;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+        .remark {
+            padding: 0 20px;
+            .list-title {
+                font-size: 16px;
+                line-height: 40px;
+            }
+            .list-content {
+                white-space: pre-wrap; //用于解决v-html不换行问题,
+                font-size: 16px;
+                line-height: 30px;
+                max-height: 200px;
+                overflow: auto;
+            }
+        }
+        .agreement-part {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0 20px;
+            line-height: 40px;
+            .agreement-title {
+                font-size: 16px;
+            }
+            .agreement-content {
+                overflow: auto;
+                max-height: 600px;
+                font-size: 16px;
+                line-height: 30px;
+                text-indent: 2rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+        }
+        .service-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            line-height: 40px;
+            .list-title {
+                font-size: 16px;
+            }
+            .price {
+                background: #67C23A;
+                padding: 0px 10px;
+                border-radius: 4px;
+                height: 30px;
+                line-height: 30px;
+                color: #ffffff;
+                font-weight: 600;
+            }
+        }
+        .img-container {
+            .img-list {
+                padding-bottom: 15px;
+                border-bottom: 1px dashed #dcdfe6;
+                .info {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 20px;
+                    line-height: 50px;
+                    .info-title {
+                        font-size: 16px;
+                    }
+                    .info-content {
+                        flex: 1;
+                        text-align: right;
+                    }
+                }
+                .imgs {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    .photo {
+                        width: 75%;
+                        margin-bottom: 10px;
+                        border-radius: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

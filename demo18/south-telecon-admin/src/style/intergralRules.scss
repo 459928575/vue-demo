@@ -1,0 +1,51 @@
+.building-price {
+    background-color: #fff;
+    padding: 20px 20px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    .info-container {
+        // padding-top: 20px;
+        .info-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            &.p-0 {
+                padding-bottom: 0;
+            }
+            .left {
+                width: 80px;
+                font-size: 16px;
+                text-align: justify;
+                text-align-last: justify;
+                margin-right: 20px;
+            }
+            .right {
+                width: 500px;
+                &.border {
+                    padding-bottom: 20px;
+                }
+                .right-input {
+                    width: 200px;
+                    &.address {
+                        width: 500px;
+                    }
+                    &.textarea {
+                        width: 500px;
+                    }
+                }
+                .save-btn {
+                    width: 150px;
+                    margin-top: 20px;
+                }
+                .back-btn {
+                    width: 150px;
+                }
+            }
+            .add-btn {
+                margin-left: 15px;
+            }
+        }
+    }
+}

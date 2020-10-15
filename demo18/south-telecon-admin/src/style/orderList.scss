@@ -1,0 +1,192 @@
+.order-details {
+    .order-info {
+        overflow: auto;
+        .product-desc {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            .product-img {
+                width: 100px;
+                height: 100px;
+                border-radius: 8px;
+            }
+            .product-name {
+                flex: 1;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: right;
+            }
+        }
+        .product-content {
+            padding: 0 20px;
+            font-size: 16px;
+            line-height: 30px;
+            white-space: pre-wrap; //用于解决v-html不换行问题,
+        }
+        .list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            line-height: 40px;
+            &.border {
+                border-bottom: 1px dashed #dcdfe6;
+            }
+            .list-title {
+                font-size: 16px;
+            }
+            .list-content {
+                text-align: right;
+                &.status {
+                    padding: 0 10px;
+                    border-radius: 4px;
+                    height: 30px;
+                    line-height: 30px;
+                    font-weight: 600;
+                    &.no-submit {
+                        background-color: #F56C6C;
+                        color: #ffffff;
+                    }
+                }
+                &.green {
+                    color: green;
+                }
+            }
+        }
+        .service-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            line-height: 40px;
+            .list-title {
+                font-size: 16px;
+            }
+            .price {
+                background: #F56C6C;
+                padding: 0px 10px;
+                border-radius: 4px;
+                height: 30px;
+                line-height: 30px;
+                color: #ffffff;
+                font-weight: 600;
+            }
+        }
+        .img-container {
+            .img-list {
+                padding-bottom: 15px;
+                border-bottom: 1px dashed #dcdfe6;
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    padding: 0 20px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    .info-title {
+                        font-size: 16px;
+                        line-height: 30px;
+                    }
+                    .info-content {
+                        line-height: 40px;
+                    }
+                }
+                .imgs {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    &:hover {
+                        .view-mask {
+                            position: absolute;
+                            background: rgba(0, 0, 0, 0.5);
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            bottom: 0;
+                            width: 75%;
+                            margin: 0 auto 10px;
+                            border-radius: 8px;
+                            display: block;
+                        }
+                    }
+                    .photo {
+                        width: 75%;
+                        margin-bottom: 10px;
+                        border-radius: 8px;
+                    }
+                    .view-mask {
+                        position: absolute;
+                        background: rgba(0, 0, 0, 0.3);
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: 75%;
+                        margin: 0 auto 10px;
+                        border-radius: 8px;
+                        display: none;
+                        .view-btn {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index: 20;
+                        }
+                    }
+                }
+            }
+        }
+        .action-list {
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            .contract-btn {
+                width: 50%;
+            }
+        }
+    }
+}
+
+
+/* 订单状态改变下拉框 */
+
+.action-dropdown {
+    margin-left: 10px;
+}
+
+.add-modal {
+    .details-container {
+        margin: -20px auto -30px;
+        padding-top: 20px;
+        .details-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 16px;
+            min-height: 40px;
+            margin-bottom: 20px;
+            .left {
+                margin-right: 10px;
+                width: 120px;
+            }
+            .right {
+                width: 50%;
+                color: #999;
+                &.w-75 {
+                    width: 75%;
+                }
+            }
+        }
+    }
+}

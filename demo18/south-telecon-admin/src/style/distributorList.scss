@@ -1,0 +1,17 @@
+.distributor-modal {
+    .el-form-item__label {
+        font-size: 16px;
+    }
+    .content-input {
+        width: 50%;
+        &.big {
+            width: 70%;
+        }
+        &.w-70 {
+            width: 70%;
+        }
+    }
+    .dialog-footer {
+        margin-top: -40px;
+    }
+}

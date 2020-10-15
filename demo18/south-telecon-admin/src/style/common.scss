@@ -1,0 +1,96 @@
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+}
+
+ ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 5px;
+}
+
+ ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.25);
+    transition: color 0.2s ease;
+}
+
+// 分页器样式
+.page {
+    background-color: #ffffff;
+    padding: 10px;
+    // border-bottom-left-radius: 6px;
+    // border-bottom-right-radius: 6px;
+    text-align: right;
+    background-color: #F7F7F7;
+}
+
+// 页头样式
+.el-page-header {
+    background-color: #ffffff;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    // border-top-left-radius: 6px;
+    // border-top-right-radius: 6px;
+    padding: 0 10px;
+    border-bottom: 1px solid #ebeef5;
+    .el-page-header__left {
+        .el-page-header__title {
+            font-size: 16px;
+        }
+        &:hover {
+            color: #058CE8;
+            font-weight: 600;
+        }
+    }
+    .el-page-header__content {
+        font-size: 16px;
+    }
+}
+
+// 回到顶部按钮
+.el-backtop {
+    background-color: #f2f2f2 !important;
+}
+
+// 清除下拉菜单的边框
+.el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
+    border: none !important;
+}
+
+.el-submenu.is-active .el-submenu__title {
+    border: none !important;
+}
+
+// 对话框样式修改
+.el-dialog__header {
+    // border-bottom: 1px solid #e1dee7;
+}
+
+// 表格查看详情样式
+.details-modal {
+    .details-container {
+        margin: -20px auto -30px;
+        .details-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            font-size: 16px;
+            line-height: 25px;
+            min-height: 40px;
+            .left {
+                margin-right: 10px;
+                width: 80px;
+            }
+            .right {
+                flex: 1;
+                color: #999;
+            }
+        }
+    }
+}

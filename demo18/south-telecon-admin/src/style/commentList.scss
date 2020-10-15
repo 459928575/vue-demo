@@ -1,0 +1,83 @@
+.order-details {
+    .order-info {
+        overflow: auto;
+        .product-desc {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            .product-img {
+                width: 100px;
+                height: 100px;
+                border-radius: 8px;
+            }
+            .product-name {
+                flex: 1;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: right;
+            }
+        }
+        .product-content {
+            padding: 0 20px;
+            font-size: 16px;
+            line-height: 30px;
+            text-indent: 2rem;
+        }
+        .list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            line-height: 40px;
+            border-bottom: 1px dashed #dcdfe6;
+            .list-title {
+                font-size: 16px;
+            }
+            .list-content {
+                text-align: right;
+                &.status {
+                    padding: 0 10px;
+                    border-radius: 4px;
+                    height: 30px;
+                    line-height: 30px;
+                    font-weight: 600;
+                    &.no-submit {
+                        background-color: #F56C6C;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+        .agreement-part {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0 20px;
+            line-height: 40px;
+            border-bottom: 1px dashed #dcdfe6;
+            &.border-none {
+                border: none;
+            }
+            .agreement-title {
+                font-size: 16px;
+            }
+            .agreement-content {
+                overflow: auto;
+                max-height: 600px;
+                font-size: 16px;
+                line-height: 30px;
+                text-indent: 2rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
